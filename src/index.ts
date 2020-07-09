@@ -1,11 +1,13 @@
-export { Unit } from './unit/Unit';
-export { toUnit } from './unit/toUnit';
-export { unitMin } from './unit/unitMin';
-export { unitMax } from './unit/unitMax';
+export { difference } from './unit/difference';
+export { fraction } from './unit/fraction';
 export { mapUnit } from './unit/mapUnit';
 export { phase } from './unit/phase';
+export { quantize } from './unit/quantize';
 export { repeat } from './unit/repeat';
-export { fraction } from './unit/fraction';
+export { toUnit } from './unit/toUnit';
+export { Unit } from './unit/Unit';
+export { unitMax } from './unit/unitMax';
+export { unitMin } from './unit/unitMin';
 
 // 1d
 export { binary } from './1d/binary';
