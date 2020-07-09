@@ -1,3 +1,3 @@
-import {Opaque} from 'ts-essentials'
+import { Opaque } from 'ts-essentials';
 
-export type Unit = Opaque<number, "Unit">
+export type Unit = Opaque<number, 'Unit'>;
