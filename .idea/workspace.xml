@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="da9220b6-4730-4849-9898-9bfa8d9ac0c4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/unit-fns.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Unit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Unit.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="ddmcgy26" />
+  </component>
+  <component name="ProjectId" id="1eT1LVvuTdFeXUBprvEAFS5d09a" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da9220b6-4730-4849-9898-9bfa8d9ac0c4" name="Default Changelist" comment="" />
+      <created>1594330712611</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594330712611</updated>
+      <workItem from="1594330714253" duration="874000" />
+    </task>
+    <task id="LOCAL-00001" summary="add Unit type and toUnit helper">
+      <created>1594331223466</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594331223466</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add Unit type and toUnit helper" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Unit type and toUnit helper" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="546" y="205" key="CommitChangelistDialog2" timestamp="1594331223213">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="546" y="205" key="CommitChangelistDialog2/0.23.1920.1177@0.23.1920.1177" timestamp="1594331223213" />
+    <state x="461" y="250" key="SettingsEditor" timestamp="1594331594608">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="461" y="250" key="SettingsEditor/0.23.1920.1177@0.23.1920.1177" timestamp="1594331594608" />
+    <state x="560" y="338" key="Vcs.Push.Dialog.v2" timestamp="1594331224892">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="560" y="338" key="Vcs.Push.Dialog.v2/0.23.1920.1177@0.23.1920.1177" timestamp="1594331224892" />
+    <state x="684" y="426" key="jetbrains.nodejs.interpreters-dialog" timestamp="1594331356791">
+      <screen x="0" y="23" width="1920" height="1177" />
+    </state>
+    <state x="684" y="426" key="jetbrains.nodejs.interpreters-dialog/0.23.1920.1177@0.23.1920.1177" timestamp="1594331356791" />
+  </component>
+</project>
