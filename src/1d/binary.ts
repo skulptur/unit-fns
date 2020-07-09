@@ -1,5 +1,5 @@
 import { UnitFunction1d } from './UnitFunction1d';
-import { Unit } from '../Unit';
+import { Unit } from '../unit/Unit';
 import { threshold } from '../2d/threshold';
 
 export const binary: UnitFunction1d = t => {

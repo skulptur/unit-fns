@@ -1,4 +1,4 @@
-import { Unit } from '../Unit';
+import { Unit } from '../unit/Unit';
 import { peak } from './peak';
 
 describe('peak', () => {
