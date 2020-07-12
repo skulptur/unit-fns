@@ -3,6 +3,7 @@ export { Unit } from './Unit';
 export { unitMax } from './unitMax';
 export { unitMin } from './unitMin';
 export { random } from './random';
+export { isUnit } from './isUnit';
 
 // number
 export { clip } from './number/clip';
@@ -31,3 +32,6 @@ export { threshold } from './2d/threshold';
 // 3d
 export { clamp } from './3d/clamp';
 export { mix } from './3d/mix';
+export { toggle } from './3d/toggle';
+export { mapTo } from './3d/mapTo';
+export { mapFrom } from './3d/mapFrom';
