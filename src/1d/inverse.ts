@@ -1,6 +1,6 @@
 import { UnitFunction1d } from './UnitFunction1d';
-import { Unit } from '../unit/Unit';
+import { Unit } from '../Unit';
 
-export const inverse: UnitFunction1d = t => {
-  return (1 - t) as Unit;
+export const inverse: UnitFunction1d = unit => {
+  return (1 - unit) as Unit;
 };

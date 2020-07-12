@@ -1,7 +1,8 @@
 import { UnitFunction1d } from './UnitFunction1d';
-import { Unit } from '../unit/Unit';
-import { threshold } from '../2d/threshold';
+import { unitMax } from '../unitMax';
+import { unitMin } from '../unitMin';
+import { toggle } from '../3d/toggle';
 
-export const binary: UnitFunction1d = t => {
-  return threshold(0.5 as Unit, t);
+export const binary: UnitFunction1d = unit => {
+  return toggle(unitMin, unitMax, unit);
 };

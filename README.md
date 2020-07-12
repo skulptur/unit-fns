@@ -11,7 +11,7 @@ yarn add unit-fns
 Use
 
 ```typescript
-import { toUnit } from 'unit-fns'
+import { toUnit } from 'unit-fns';
 
-console.log(toUnit(10)) // 1 as Unit
+console.log(toUnit(10)); // unitMax
 ```

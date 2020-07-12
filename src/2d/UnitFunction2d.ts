@@ -1,3 +1,3 @@
-import { Unit } from '../unit/Unit';
+import { Unit } from '../Unit';
 
 export type UnitFunction2d = (a: Unit, t: Unit) => Unit;
