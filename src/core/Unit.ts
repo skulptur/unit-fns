@@ -1,8 +1,8 @@
 class Opaque<T> {
   // @ts-ignore
-  private __TYPE__: T;
+  private __TYPE__: T
 }
 
-export type Nominal<Tag extends string, Type> = Type & Opaque<Tag>;
+export type Nominal<Tag extends string, Type> = Type & Opaque<Tag>
 
-export type Unit = Nominal<'Unit', number>;
+export type Unit = Nominal<'Unit', number>

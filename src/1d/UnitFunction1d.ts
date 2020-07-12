@@ -1,3 +1,3 @@
-import { Unit } from '../core/Unit';
+import { Unit } from '../core/Unit'
 
-export type UnitFunction1d = (t: Unit) => Unit;
+export type UnitFunction1d = (t: Unit) => Unit

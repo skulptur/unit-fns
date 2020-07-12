@@ -1,3 +1,3 @@
-import { Unit } from './Unit';
+import { Unit } from './Unit'
 
-export const unitMin = 0 as Unit;
+export const unitMin = 0 as Unit

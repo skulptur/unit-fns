@@ -1,7 +1,7 @@
-import { maximum } from './maximum';
+import { maximum } from './maximum'
 
 describe('maximum', () => {
   it('is an alias to Math.max', () => {
-    expect(maximum).toBe(Math.max);
-  });
-});
+    expect(maximum).toBe(Math.max)
+  })
+})

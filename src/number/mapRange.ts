@@ -5,6 +5,5 @@ export const mapRange = <T extends number = number>(
   outMax: T,
   value: number
 ): T => {
-  return (((value - inMin) * (outMax - outMin)) / (inMax - inMin) +
-    outMin) as T;
-};
+  return (((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin) as T
+}
