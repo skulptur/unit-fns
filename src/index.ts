@@ -14,7 +14,7 @@ export { mapRange } from './operations/mapRange';
 export { fit } from './operations/fit';
 
 // 1d
-export { binary } from './1d/binary';
+export { round } from './1d/round';
 export { inverse } from './1d/inverse';
 export { linear } from './1d/linear';
 
