@@ -1,5 +1,5 @@
 import { linear } from './linear';
-import { Unit } from '../Unit';
+import { Unit } from '../core/Unit';
 
 describe('linear', () => {
   it('works as identity for Unit', () => {

@@ -1,7 +1,7 @@
 import { difference } from './difference';
-import { unitMin } from '../unitMin';
-import { unitMax } from '../unitMax';
-import { Unit } from '../Unit';
+import { unitMin } from '../core/unitMin';
+import { unitMax } from '../core/unitMax';
+import { Unit } from '../core/Unit';
 
 describe('difference', () => {
   it('the absolute difference between two units', () => {

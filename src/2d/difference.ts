@@ -1,4 +1,4 @@
-import { Unit } from '../Unit';
+import { Unit } from '../core/Unit';
 import { UnitFunction2d } from './UnitFunction2d';
 
 export const difference: UnitFunction2d = (a, b) => {

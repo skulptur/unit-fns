@@ -1,6 +1,6 @@
-import { unitMax } from '../unitMax';
-import { Unit } from '../Unit';
-import { isUnit } from '../isUnit';
+import { unitMax } from '../core/unitMax';
+import { Unit } from '../core/Unit';
+import { isUnit } from '../core/isUnit';
 
 export const wrap = (value: number): Unit => {
   if (isUnit(value)) return value;

@@ -1,5 +1,5 @@
 import { repeat } from './repeat';
-import { Unit } from '../Unit';
+import { Unit } from '../core/Unit';
 
 describe('repeat', () => {
   // TODO: add more tests

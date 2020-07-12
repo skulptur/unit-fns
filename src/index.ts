@@ -1,23 +1,22 @@
-// unit / core
-export { Unit } from './Unit';
-export { unitMax } from './unitMax';
-export { unitMin } from './unitMin';
-export { random } from './random';
-export { isUnit } from './isUnit';
+// core
+export { isUnit } from './core/isUnit';
+export { random } from './core/random';
+export { Unit } from './core/Unit';
+export { unitMax } from './core/unitMax';
+export { unitMin } from './core/unitMin';
 
 // number
 export { clip } from './number/clip';
 export { fraction } from './number/fraction';
+export { mapFrom } from './number/mapFrom';
+export { mapRange } from './number/mapRange';
+export { mapTo } from './number/mapTo';
 export { wrap } from './number/wrap';
 
-// operations
-export { mapRange } from './operations/mapRange';
-export { fit } from './operations/fit';
-
 // 1d
-export { round } from './1d/round';
 export { inverse } from './1d/inverse';
 export { linear } from './1d/linear';
+export { round } from './1d/round';
 
 // 2d
 export { difference } from './2d/difference';
@@ -33,5 +32,6 @@ export { threshold } from './2d/threshold';
 export { clamp } from './3d/clamp';
 export { mix } from './3d/mix';
 export { toggle } from './3d/toggle';
-export { mapTo } from './3d/mapTo';
-export { mapFrom } from './3d/mapFrom';
+
+// other
+export { fit } from './other/fit';

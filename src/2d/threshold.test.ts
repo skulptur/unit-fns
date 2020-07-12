@@ -1,7 +1,7 @@
 import { threshold } from './threshold';
-import { Unit } from '../Unit';
-import { unitMin } from '../unitMin';
-import { unitMax } from '../unitMax';
+import { Unit } from '../core/Unit';
+import { unitMin } from '../core/unitMin';
+import { unitMax } from '../core/unitMax';
 
 describe('threshold', () => {
   it('returns unitMin for below threshold and unitMax for equal and above', () => {

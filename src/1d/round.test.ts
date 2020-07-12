@@ -1,7 +1,7 @@
 import { round } from './round';
-import { Unit } from '../Unit';
-import { unitMin } from '../unitMin';
-import { unitMax } from '../unitMax';
+import { Unit } from '../core/Unit';
+import { unitMin } from '../core/unitMin';
+import { unitMax } from '../core/unitMax';
 
 describe('round', () => {
   it('rounds to nearest Unit boundary', () => {

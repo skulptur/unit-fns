@@ -1,5 +1,5 @@
 import { offset } from './offset';
-import { Unit } from '../Unit';
+import { Unit } from '../core/Unit';
 
 describe('offset', () => {
   it('adds both units and wraps the result around', () => {

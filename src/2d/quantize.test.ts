@@ -1,5 +1,5 @@
 import { quantize } from './quantize';
-import { Unit } from '../Unit';
+import { Unit } from '../core/Unit';
 
 describe('quantize', () => {
   it('quantizes the given unit', () => {

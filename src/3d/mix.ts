@@ -1,6 +1,5 @@
-import { Unit } from '../Unit';
 import { UnitFunction3d } from './UnitFunction3d';
+import { mapTo } from '../number/mapTo';
 
-export const mix: UnitFunction3d = (a, b, t) => {
-  return (a * (1 - t) + b * t) as Unit;
-};
+// typed alias
+export const mix: UnitFunction3d = mapTo;

@@ -1,5 +1,5 @@
 import { inverse } from './inverse';
-import { Unit } from '../Unit';
+import { Unit } from '../core/Unit';
 
 describe('inverse', () => {
   it('inverse linear', () => {
