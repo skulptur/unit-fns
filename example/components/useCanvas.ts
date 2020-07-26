@@ -1,18 +1,30 @@
 import { useRef, useEffect } from 'react'
 import { scaleCanvas } from './scaleCanvas'
 
-export const useCanvas = () => {
-  const canvasRef = useRef<HTMLCanvasElement | null | undefined>()
+type UseCanvasProps = {
+  width: number
+  height: number
+  pixelRatio?: number
+}
+
+export const useCanvas = ({
+  width,
+  height,
+  pixelRatio = devicePixelRatio,
+}: UseCanvasProps) => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const contextRef = useRef<CanvasRenderingContext2D | null>()
 
   useEffect(() => {
     if (!canvasRef.current || contextRef.current) return
     contextRef.current = canvasRef.current.getContext('2d')
+
     scaleCanvas(
+      width,
+      height,
+      pixelRatio,
       canvasRef.current,
-      contextRef.current!,
-      canvasRef.current.width,
-      canvasRef.current.height
+      contextRef.current!
     )
   }, [contextRef, canvasRef])
 

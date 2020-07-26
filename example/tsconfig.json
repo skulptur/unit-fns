@@ -7,7 +7,6 @@
     "moduleResolution": "node",
     "noImplicitAny": false,
     "esModuleInterop": true,
-
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "removeComments": true,

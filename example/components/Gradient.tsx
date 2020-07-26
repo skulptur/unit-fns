@@ -16,7 +16,7 @@ export const Gradient: React.FC<GradientProps> = ({
   height,
   unitFn,
 }) => {
-  const { canvasRef, contextRef } = useCanvas()
+  const { canvasRef, contextRef } = useCanvas({ width, height })
 
   useEffect(() => {
     if (!canvasRef.current) return
@@ -33,5 +33,5 @@ export const Gradient: React.FC<GradientProps> = ({
     }, width)
   }, [])
 
-  return <Canvas ref={canvasRef} width={width} height={height} />
+  return <canvas ref={canvasRef} />
 }

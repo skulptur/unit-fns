@@ -21,7 +21,7 @@ export const Plot2d: React.FC<Plot2dProps> = ({
   pointSize,
   sampleCount,
 }) => {
-  const { canvasRef, contextRef } = useCanvas()
+  const { canvasRef, contextRef } = useCanvas({ width, height })
 
   useEffect(() => {
     if (!canvasRef.current) return

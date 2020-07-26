@@ -18,7 +18,7 @@ export const Graph: React.FC<GraphProps> = ({
   unitFn,
   thickness,
 }) => {
-  const { canvasRef, contextRef } = useCanvas()
+  const { canvasRef, contextRef } = useCanvas({ width, height })
 
   useEffect(() => {
     if (!canvasRef.current) return

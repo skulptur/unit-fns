@@ -11,6 +11,7 @@ export { mapFrom } from './number/mapFrom'
 export { mapRange } from './number/mapRange'
 export { mapTo } from './number/mapTo'
 export { wrap } from './number/wrap'
+export { radiansToUnit } from './number/radiansToUnit'
 
 // 1d
 export { bounce } from './1d/bounce'
@@ -25,6 +26,7 @@ export { quartic } from './1d/quartic'
 export { quintic } from './1d/quintic'
 export { round } from './1d/round'
 export { sine } from './1d/sine'
+export { triangle } from './1d/triangle'
 
 // 2d
 export { difference } from './2d/difference'
@@ -36,6 +38,8 @@ export { quantize } from './2d/quantize'
 export { repeat } from './2d/repeat'
 export { threshold } from './2d/threshold'
 export { multiply } from './2d/multiply'
+export { distance } from './2d/distance'
+export { angle } from './2d/angle'
 
 // 3d
 export { clamp } from './3d/clamp'
