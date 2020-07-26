@@ -1,12 +1,12 @@
 import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { isUnit } from '../src'
+import './index.css'
+import { App } from 'components/App'
 
-console.log(isUnit(10))
-
-const App = () => {
-  return <div></div>
-}
-
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+)
