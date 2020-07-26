@@ -18,6 +18,13 @@ export { linear } from './1d/linear'
 export { round } from './1d/round'
 export { sine } from './1d/sine'
 export { cosine } from './1d/cosine'
+export { bounce } from './1d/bounce'
+export { circular } from './1d/circular'
+export { cubic } from './1d/cubic'
+export { exponential } from './1d/exponential'
+export { quadratic } from './1d/quadratic'
+export { quartic } from './1d/quartic'
+export { quintic } from './1d/quintic'
 
 // 2d
 export { difference } from './2d/difference'

@@ -32,7 +32,6 @@ export const Plot2d: React.FC<Plot2dProps> = ({
     times(index => {
       const progress = (index / width) as Unit
       const [x, y] = unitFns.map(unitFn => unitFn(progress))
-      console.log(x, y)
       drawPoint(
         x * width - halfPointSize,
         y * height - halfPointSize,

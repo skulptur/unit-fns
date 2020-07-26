@@ -5,6 +5,8 @@ import {
   Unit,
   inverse,
   linear,
+  sine,
+  cosine,
   round,
   random,
   difference,
@@ -18,8 +20,13 @@ import {
   clamp,
   mix,
   toggle,
-  sine,
-  cosine,
+  bounce,
+  circular,
+  cubic,
+  exponential,
+  quadratic,
+  quartic,
+  quintic,
 } from '../src'
 import { Gradient } from './components/Gradient'
 import { Graph } from './components/Graph'
@@ -28,8 +35,17 @@ import { Plot2d } from './components/Plot2d'
 const unitFns1d = {
   linear,
   inverse,
+  sine,
+  cosine,
   round,
   random,
+  bounce,
+  circular,
+  cubic,
+  exponential,
+  quadratic,
+  quartic,
+  quintic,
   difference: (unit: Unit) => difference(0.5 as Unit, unit),
   maximum: (unit: Unit) => maximum(0.5 as Unit, unit),
   minimum: (unit: Unit) => minimum(0.5 as Unit, unit),
@@ -51,7 +67,7 @@ const App = () => {
         height={1000}
         unitFns={[sine, cosine]}
         pointSize={4}
-        sampleCount={10}
+        sampleCount={1000}
       />
       {Object.entries(unitFns1d).map(([name, unitFn]) => {
         return (
