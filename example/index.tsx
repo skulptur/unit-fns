@@ -18,9 +18,12 @@ import {
   clamp,
   mix,
   toggle,
+  sine,
+  cosine,
 } from '../src'
 import { Gradient } from './components/Gradient'
 import { Graph } from './components/Graph'
+import { Plot2d } from './components/Plot2d'
 
 const unitFns1d = {
   linear,
@@ -43,6 +46,13 @@ const unitFns1d = {
 const App = () => {
   return (
     <div>
+      <Plot2d
+        width={1000}
+        height={1000}
+        unitFns={[sine, cosine]}
+        pointSize={4}
+        sampleCount={10}
+      />
       {Object.entries(unitFns1d).map(([name, unitFn]) => {
         return (
           <div key={name}>

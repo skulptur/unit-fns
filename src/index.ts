@@ -16,6 +16,8 @@ export { wrap } from './number/wrap'
 export { inverse } from './1d/inverse'
 export { linear } from './1d/linear'
 export { round } from './1d/round'
+export { sine } from './1d/sine'
+export { cosine } from './1d/cosine'
 
 // 2d
 export { difference } from './2d/difference'
