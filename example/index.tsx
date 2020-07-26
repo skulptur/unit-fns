@@ -13,6 +13,11 @@ import {
   offset,
   peak,
   quantize,
+  repeat,
+  threshold,
+  clamp,
+  mix,
+  toggle,
 } from '../src'
 import { Gradient } from './components/Gradient'
 
@@ -27,6 +32,11 @@ const unitFns1d = {
   offset: (unit: Unit) => offset(0.5 as Unit, unit),
   peak: (unit: Unit) => peak(0.2 as Unit, unit),
   quantize: (unit: Unit) => quantize(0.2 as Unit, unit),
+  repeat: (unit: Unit) => repeat(0.2 as Unit, unit),
+  threshold: (unit: Unit) => threshold(0.2 as Unit, unit),
+  clamp: (unit: Unit) => clamp(0.2 as Unit, 0.8 as Unit, unit),
+  mix: (unit: Unit) => mix(random(), 0.8 as Unit, unit),
+  toggle: (unit: Unit) => toggle(random(), 1 as Unit, unit),
 }
 
 const App = () => {
