@@ -6,6 +6,7 @@ import {
   inverse,
   linear,
   round,
+  random,
   difference,
   maximum,
   minimum,
@@ -17,9 +18,10 @@ import { Gradient } from './components/Gradient'
 import { Graph } from './components/Graph'
 
 const unitFns1d = {
-  inverse,
   linear,
+  inverse,
   round,
+  random,
   difference: (unit: Unit) => difference(0.5 as Unit, unit),
   maximum: (unit: Unit) => maximum(0.5 as Unit, unit),
   minimum: (unit: Unit) => minimum(0.5 as Unit, unit),
