@@ -3,6 +3,7 @@ import { times } from 'lodash-fp'
 import { Canvas } from './Canvas'
 import { Unit } from '../../src'
 import { getRgbString1d } from '../getRgbString1d'
+import { useCanvas } from './useCanvas'
 
 type GraphProps = {
   width: number
@@ -17,11 +18,11 @@ export const Graph: React.FC<GraphProps> = ({
   unitFn,
   thickness,
 }) => {
-  const canvasRef = React.useRef<HTMLCanvasElement | null>(null)
+  const { canvasRef, contextRef } = useCanvas()
 
   useEffect(() => {
     if (!canvasRef.current) return
-    const context = canvasRef.current.getContext('2d')!
+    const context = contextRef.current!
     context.lineWidth = 1
     const halfThickness = thickness / 2
     times(index => {

@@ -45,16 +45,10 @@ const App = () => {
     <div>
       {Object.entries(unitFns1d).map(([name, unitFn]) => {
         return (
-          <>
-            <Graph
-              key={name}
-              width={1000}
-              height={100}
-              thickness={6}
-              unitFn={unitFn}
-            />
-            <Gradient key={name} width={1000} height={50} unitFn={unitFn} />
-          </>
+          <div key={name}>
+            <Graph width={1000} height={100} thickness={6} unitFn={unitFn} />
+            <Gradient width={1000} height={50} unitFn={unitFn} />
+          </div>
         )
       })}
     </div>
