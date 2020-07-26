@@ -11,6 +11,7 @@ export { mapFrom } from './number/mapFrom'
 export { mapRange } from './number/mapRange'
 export { mapTo } from './number/mapTo'
 export { wrap } from './number/wrap'
+export { subdivision } from './number/subdivision'
 export { radiansToUnit } from './number/radiansToUnit'
 
 // 1d

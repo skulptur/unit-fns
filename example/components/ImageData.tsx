@@ -18,7 +18,7 @@ export const ImageData: React.FC<ImageDataProps> = ({
   onSample,
 }) => {
   const { canvasRef, contextRef } = useCanvas({ width, height, pixelRatio })
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: 1, y: 1 })
 
   useEffect(() => {
     if (!canvasRef.current) return
