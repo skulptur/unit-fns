@@ -20,6 +20,7 @@ import {
   toggle,
 } from '../src'
 import { Gradient } from './components/Gradient'
+import { Graph } from './components/Graph'
 
 const unitFns1d = {
   linear,
@@ -43,7 +44,18 @@ const App = () => {
   return (
     <div>
       {Object.entries(unitFns1d).map(([name, unitFn]) => {
-        return <Gradient key={name} width={1000} height={50} unitFn={unitFn} />
+        return (
+          <>
+            <Graph
+              key={name}
+              width={1000}
+              height={100}
+              thickness={6}
+              unitFn={unitFn}
+            />
+            <Gradient key={name} width={1000} height={50} unitFn={unitFn} />
+          </>
+        )
       })}
     </div>
   )
