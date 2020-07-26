@@ -13,18 +13,18 @@ export { mapTo } from './number/mapTo'
 export { wrap } from './number/wrap'
 
 // 1d
-export { inverse } from './1d/inverse'
-export { linear } from './1d/linear'
-export { round } from './1d/round'
-export { sine } from './1d/sine'
-export { cosine } from './1d/cosine'
 export { bounce } from './1d/bounce'
 export { circular } from './1d/circular'
+export { cosine } from './1d/cosine'
 export { cubic } from './1d/cubic'
 export { exponential } from './1d/exponential'
+export { inverse } from './1d/inverse'
+export { linear } from './1d/linear'
 export { quadratic } from './1d/quadratic'
 export { quartic } from './1d/quartic'
 export { quintic } from './1d/quintic'
+export { round } from './1d/round'
+export { sine } from './1d/sine'
 
 // 2d
 export { difference } from './2d/difference'
@@ -35,6 +35,7 @@ export { peak } from './2d/peak'
 export { quantize } from './2d/quantize'
 export { repeat } from './2d/repeat'
 export { threshold } from './2d/threshold'
+export { multiply } from './2d/multiply'
 
 // 3d
 export { clamp } from './3d/clamp'
