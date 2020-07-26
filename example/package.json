@@ -10,6 +10,7 @@
   "dependencies": {
     "components": "^0.1.0",
     "lodash-fp": "^0.10.4",
+    "ramda": "^0.27.0",
     "react-app-polyfill": "^1.0.0",
     "react-is": ">= 16.8.0",
     "styled-components": "^5.1.1"
