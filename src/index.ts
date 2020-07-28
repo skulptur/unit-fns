@@ -47,6 +47,7 @@ export { distance } from './2d/distance'
 export { angle } from './2d/angle'
 export { diffuse } from './2d/diffuse'
 export { gaussian } from './2d/gaussian'
+export { radial } from './2d/radial'
 export { createNoise2d } from './2d/createNoise2d'
 
 // 3d

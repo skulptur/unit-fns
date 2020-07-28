@@ -3,9 +3,11 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { ImageData } from './src/components/ImageData'
 import { sketch1 } from './src/graphics/sketch1'
+import { sketch2 } from './src/graphics/sketch2'
 
 const sketchMap = {
   sketch1,
+  sketch2,
 }
 
 const App = () => {

@@ -1,12 +1,6 @@
-import { branch, repeat, inverse, triangle } from '../../../src'
+import { radial } from '../../../src'
+import { sketch1 } from './sketch1'
 
 export const sketch2 = (x: number, y: number) => {
-  const xCoord = inverse(triangle(x))
-  const yCoord = inverse(triangle(y))
-
-  return branch(
-    () => repeat(xCoord, x),
-    () => repeat(yCoord, y),
-    repeat(xCoord, yCoord)
-  )
+  return sketch1(x, radial(x, y))
 }
