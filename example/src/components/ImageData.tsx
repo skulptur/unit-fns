@@ -7,7 +7,7 @@ import { saveAs } from 'file-saver'
 type ImageDataProps = {
   width: number
   height: number
-  onSample: (x: Unit, y: Unit, z: Unit, a: Unit) => Unit
+  onSample: (x: Unit, y: Unit, z: Unit, w: Unit) => Unit
   pixelRatio?: number
 }
 
@@ -18,20 +18,19 @@ export const ImageData: React.FC<ImageDataProps> = ({
   onSample,
 }) => {
   const { canvasRef, contextRef } = useCanvas({ width, height, pixelRatio })
-  const [mousePosition, setMousePosition] = useState({ x: 1, y: 1 })
+  const [{ x: mouseX, y: mouseY }, setMousePosition] = useState({ x: 1, y: 1 })
 
   useEffect(() => {
     if (!canvasRef.current) return
     const context = contextRef.current!
-
     putImageData(
       renderGreyscaleImage(
-        (x, y) => onSample(x, y, mousePosition.x, mousePosition.y),
+        (x, y) => onSample(x, y, mouseX as Unit, mouseY as Unit),
         context
       ),
       context
     )
-  }, [mousePosition])
+  }, [mouseX, mouseY])
 
   return (
     <>

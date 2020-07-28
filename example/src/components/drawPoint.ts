@@ -4,7 +4,8 @@ export const drawPoint = (
   size: number,
   context: CanvasRenderingContext2D
 ) => {
-  context.fillRect(x, y, size, size)
+  const halfSize = size / 2
+  context.fillRect(x - halfSize, y - halfSize, size, size)
   // TODO: move to a fill util
   context.fillStyle = 'black'
   context.fill()

@@ -5,7 +5,7 @@ import { Unit } from '../../src'
 import { useCanvas } from './useCanvas'
 import { drawPoint } from './drawPoint'
 
-type PointGridProps = {
+type VectorFieldProps = {
   width: number
   height: number
   pointSize: number
@@ -13,14 +13,14 @@ type PointGridProps = {
   sampleCount: number
 }
 
-export const PointGrid: React.FC<PointGridProps> = ({
+export const VectorField: React.FC<VectorFieldProps> = ({
   width,
   height,
   unitFns,
   pointSize,
   sampleCount,
 }) => {
-  const { canvasRef, contextRef } = useCanvas()
+  const { canvasRef, contextRef } = useCanvas({ width, height })
 
   useEffect(() => {
     if (!canvasRef.current) return
@@ -33,8 +33,8 @@ export const PointGrid: React.FC<PointGridProps> = ({
       times(y => {
         const xUnit = x / halfSampleCount
         const yUnit = y / halfSampleCount
-        const canvasX = unitFns[0](xUnit) * width
-        const canvasY = unitFns[1](yUnit) * height
+        const canvasX = xUnit * width
+        const canvasY = yUnit * height
         // const progress = (index / width) as Unit
         // const [x, y] = unitFns.map(unitFn => unitFn(progress))
         drawPoint(

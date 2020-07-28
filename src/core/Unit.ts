@@ -4,5 +4,5 @@ class Opaque<T> {
 }
 
 export type Nominal<Tag extends string, Type> = Type & Opaque<Tag>
-
-export type Unit = Nominal<'Unit', number>
+// Nominal<'Unit', number>
+export type Unit = number

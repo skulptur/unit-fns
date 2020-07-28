@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { times } from 'lodash-fp'
-import { Canvas } from './Canvas'
 import { Unit } from '../../src'
 // import { getRgbString1d } from '../getRgbString1d'
 import { useCanvas } from './useCanvas'
@@ -10,14 +9,14 @@ type Plot2dProps = {
   width: number
   height: number
   pointSize: number
-  unitFns: [(t: Unit) => Unit, (t: Unit) => Unit]
+  onSample: (x: Unit, y: Unit) => Unit
   sampleCount: number
 }
 
 export const Plot2d: React.FC<Plot2dProps> = ({
   width,
   height,
-  unitFns,
+  onSample,
   pointSize,
   sampleCount,
 }) => {
@@ -26,20 +25,22 @@ export const Plot2d: React.FC<Plot2dProps> = ({
   useEffect(() => {
     if (!canvasRef.current) return
     const context = contextRef.current!
-    context.lineWidth = 1
-    const halfPointSize = pointSize / 2
+    const halfSampleCount = sampleCount / 2
+    const correctedSize = pointSize * devicePixelRatio
+    times(x => {
+      times(y => {
+        const xUnit = (x / halfSampleCount) as Unit
+        const yUnit = (y / halfSampleCount) as Unit
 
-    times(index => {
-      const progress = (index / width) as Unit
-      const [x, y] = unitFns.map(unitFn => unitFn(progress))
-      drawPoint(
-        x * width - halfPointSize,
-        y * height - halfPointSize,
-        pointSize,
-        context
-      )
-    }, sampleCount)
+        drawPoint(
+          onSample(xUnit, yUnit) * width,
+          onSample(yUnit, xUnit) * height,
+          correctedSize,
+          context
+        )
+      }, halfSampleCount)
+    }, halfSampleCount)
   }, [])
 
-  return <Canvas ref={canvasRef} width={width} height={height} />
+  return <canvas ref={canvasRef} />
 }

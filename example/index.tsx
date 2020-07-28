@@ -1,57 +1,20 @@
 import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import {
-  cosine,
-  difference,
-  maximum,
-  minimum,
-  offset,
-  peak,
-  quantize,
-  repeat,
-  sine,
-  threshold,
-  multiply,
-  distance,
-  angle,
-  triangle,
-  subdivision,
-} from '../src'
-import { curry } from 'ramda'
-import { ImageData } from './components/ImageData'
+import { ImageData } from './src/components/ImageData'
+import { sketch1 } from './src/graphics/sketch1'
 
-const unitFn2d = {
-  angle: curry(angle),
-  difference: curry(difference),
-  distance: curry(distance),
-  maximum: curry(maximum),
-  minimum: curry(minimum),
-  multiply: curry(multiply),
-  offset: curry(offset),
-  peak: curry(peak),
-  quantize: curry(quantize),
-  repeat: curry(repeat),
-  threshold: curry(threshold),
+const sketchMap = {
+  sketch1,
 }
-
-const quarter = subdivision(4)
 
 const App = () => {
   return (
     <div>
-      {Object.entries(unitFn2d).map(([name, unitFn2d]) => {
+      {Object.entries(sketchMap).map(([name, onSample]) => {
         return (
           <div key={name}>
-            <ImageData
-              width={500}
-              height={500}
-              onSample={(x, y) => {
-                const _x = repeat(quarter, triangle(x))
-                const _y = repeat(quarter, triangle(y))
-                return unitFn2d(sine(_x), cosine(_y))
-              }}
-            />
+            <ImageData width={1000} height={1000} onSample={onSample} />
           </div>
         )
       })}
