@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import { scaleCanvas } from './scaleCanvas'
+import { scaleCanvas } from '../utils/scaleCanvas'
 
 type UseCanvasProps = {
   width: number

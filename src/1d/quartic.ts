@@ -1,5 +1,5 @@
 import { Unit } from '../core/Unit'
 
-export const quartic = (t: Unit): Unit => {
-  return (t * t * t * t) as Unit
+export const quartic = (unit: Unit): Unit => {
+  return (unit * unit * unit * unit) as Unit
 }

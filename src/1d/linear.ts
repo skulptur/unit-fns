@@ -1,5 +1,5 @@
-import { UnitFunction1d } from './UnitFunction1d'
+import { Unit } from 'core/Unit'
 
-export const linear: UnitFunction1d = unit => {
+export const linear = (unit: Unit): Unit => {
   return unit
 }

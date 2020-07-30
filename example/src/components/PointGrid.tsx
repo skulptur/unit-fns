@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { times } from 'lodash-fp'
 import { Unit } from '../../../src'
 import { useCanvas } from './useCanvas'
-import { drawPoint } from './drawPoint'
+import { drawPoint } from '../utils/drawPoint'
 
 type PointGridProps = {
   width: number

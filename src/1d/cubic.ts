@@ -1,5 +1,5 @@
 import { Unit } from '../core/Unit'
 
-export const cubic = (t: Unit): Unit => {
-  return (t * t * t) as Unit
+export const cubic = (unit: Unit): Unit => {
+  return (unit * unit * unit) as Unit
 }

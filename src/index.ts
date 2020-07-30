@@ -18,6 +18,7 @@ export { radiansToUnit } from './number/radiansToUnit'
 export { random } from './random/random'
 
 // 1d
+export { center } from './1d/center'
 export { bounce } from './1d/bounce'
 export { circular } from './1d/circular'
 export { cosine } from './1d/cosine'
@@ -62,3 +63,4 @@ export { createNoise4d } from './4d/createNoise4d'
 // other
 export { fit } from './other/fit'
 export { branch } from './other/branch'
+export { createNearestLookup } from './other/createNearestLookup'

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { Unit } from '../../src'
+import { Unit } from '../../../src'
 import { useCanvas } from './useCanvas'
-import { renderGreyscaleImage, putImageData } from './renderImageData'
+import { putImageData } from '../utils/putImageData'
+import { renderGreyscaleImage } from '../utils/renderGreyscaleImage'
 import { saveAs } from 'file-saver'
 
 type ImageDataProps = {
   width: number
   height: number
-  onSample: (x: Unit, y: Unit, z: Unit, w: Unit) => Unit
+  onSample: (x: Unit, y: Unit) => Unit
   pixelRatio?: number
 }
 
@@ -23,13 +24,7 @@ export const ImageData: React.FC<ImageDataProps> = ({
   useEffect(() => {
     if (!canvasRef.current) return
     const context = contextRef.current!
-    putImageData(
-      renderGreyscaleImage(
-        (x, y) => onSample(x, y, mouseX as Unit, mouseY as Unit),
-        context
-      ),
-      context
-    )
+    putImageData(renderGreyscaleImage(onSample, context), context)
   }, [mouseX, mouseY])
 
   return (
