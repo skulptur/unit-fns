@@ -25,6 +25,5 @@ console.log(toUnit(10)); // 1
 
 ## API
 - Most functions receive and return numbers in the 0-1 range. Let's call a number that is in that range a Unit.
-- This library isn't actually concerned with rendering graphics/audio, that's just what I use it for.
 - Functions that can be pure, are pure.
 - The argument order is optimized for partial application.
