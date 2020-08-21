@@ -1,4 +1,3 @@
-import { UnitFunction1d } from './UnitFunction1d'
 import { Unit } from '../core/Unit'
 import { HALF_PI } from '../constants'
 
