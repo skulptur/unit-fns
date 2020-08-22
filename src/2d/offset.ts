@@ -1,6 +1,6 @@
 import { wrap } from '../number/wrap'
-import { UnitFunction2d } from './UnitFunction2d'
+import { Unit } from 'core/Unit'
 
-export const offset: UnitFunction2d = (amount, unit) => {
+export const offset = (amount: Unit, unit: Unit): Unit => {
   return wrap(amount + unit)
 }

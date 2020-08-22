@@ -1,10 +1,10 @@
 import { Unit } from '../core/Unit'
-import { UnitFunction2d } from './UnitFunction2d'
 import { unitMax } from '../core/unitMax'
 
-export const quantize: UnitFunction2d = (fraction, value) => {
+export const quantize = (fraction: Unit, value: Unit): Unit => {
   if (fraction === 0) return value
 
   const bands = unitMax / fraction
-  return (Math.round(value * bands) / bands) as Unit
+
+  return Math.round(value * bands) / bands
 }

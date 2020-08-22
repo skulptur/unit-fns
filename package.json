@@ -39,6 +39,7 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "open-simplex-noise": "^2.4.0-pre4"
+    "open-simplex-noise": "^2.4.0-pre4",
+    "random": "^2.2.0"
   }
 }

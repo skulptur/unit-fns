@@ -1,3 +1,3 @@
-import { UnitFunction2d } from './UnitFunction2d'
+import { Unit } from 'core/Unit'
 
-export const maximum: UnitFunction2d = Math.max as UnitFunction2d
+export const maximum = Math.max as (a: Unit, b: Unit) => Unit
