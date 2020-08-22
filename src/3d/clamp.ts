@@ -1,5 +1,5 @@
-import { UnitFunction3d } from './UnitFunction3d'
+import { Unit } from 'core/Unit'
 
-export const clamp: UnitFunction3d = (min, max, val) => {
+export const clamp = (min: Unit, max: Unit, val: Unit): Unit => {
   return val > max ? max : val < min ? min : val
 }

@@ -1,5 +1,5 @@
-import { UnitFunction3d } from './UnitFunction3d'
 import { mapTo } from '../number/mapTo'
+import { Unit } from 'core/Unit'
 
 // typed alias
-export const mix: UnitFunction3d = mapTo
+export const mix = mapTo as (a: Unit, b: Unit, t: Unit) => Unit

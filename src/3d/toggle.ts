@@ -1,5 +1,5 @@
-import { UnitFunction3d } from './UnitFunction3d'
+import { Unit } from 'core/Unit'
 
-export const toggle: UnitFunction3d = (a, b, t) => {
+export const toggle = (a: Unit, b: Unit, t: Unit): Unit => {
   return t < 0.5 ? a : b
 }
