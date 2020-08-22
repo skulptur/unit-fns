@@ -4,7 +4,7 @@ import { subdivision } from '../number/subdivision'
 import { toIndex } from '../number/toIndex'
 
 export const fit = (
-  fns: ReadonlyArray<(a: Unit) => Unit>,
+  fns: ReadonlyArray<(unit: Unit) => Unit>,
   unit: Unit
 ): Unit => {
   const fnsLength = fns.length
