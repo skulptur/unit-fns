@@ -14,9 +14,6 @@ export { wrap } from './number/wrap'
 export { subdivision } from './number/subdivision'
 export { radiansToUnit } from './number/radiansToUnit'
 
-// 0d
-export { random } from './random/random'
-
 // 1d
 export { center } from './1d/center'
 export { bounce } from './1d/bounce'
@@ -32,7 +29,6 @@ export { quintic } from './1d/quintic'
 export { round } from './1d/round'
 export { sine } from './1d/sine'
 export { triangle } from './1d/triangle'
-export { createNoise1d } from './1d/createNoise1d'
 
 // 2d
 export { difference } from './2d/difference'
@@ -49,18 +45,19 @@ export { angle } from './2d/angle'
 export { diffuse } from './2d/diffuse'
 export { gaussian } from './2d/gaussian'
 export { radial } from './2d/radial'
-export { createNoise2d } from './2d/createNoise2d'
 
 // 3d
 export { clamp } from './3d/clamp'
 export { mix } from './3d/mix'
 export { toggle } from './3d/toggle'
-export { createNoise3d } from './3d/createNoise3d'
-
-// 4d
-export { createNoise4d } from './4d/createNoise4d'
 
 // other
 export { fit } from './other/fit'
 export { branch } from './other/branch'
 export { createNearestLookup } from './other/createNearestLookup'
+
+// random
+export { random } from './random/random'
+export { createNoise2d } from './random/createNoise2d'
+export { createNoise3d } from './random/createNoise3d'
+export { createNoise4d } from './random/createNoise4d'
