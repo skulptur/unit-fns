@@ -1,7 +1,7 @@
 Unit-fns provides composable primitives that make it easy to generate complex numerical patterns with little code.
 
 ## Motivation
-After experimenting with shaders and other languages like Rust to see what they could offer in terms of performance for graphics and audio, I still missed the tooling and ecosystem that we as web developers are used to. Unit-fns is the answer to what happens when an elegant API is the primary goal.
+After experimenting with shaders and other languages like Rust to see what they could offer in terms of performance for graphics and audio, I still missed the tooling and ecosystem that we as web developers are used to. Unit-fns is the answer to what happens when an elegant API is the primary goal. It is currently pre version 1, the API is experimental and might change without notice.
 
 ## Get started
 
