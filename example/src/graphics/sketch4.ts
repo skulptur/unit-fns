@@ -1,13 +1,12 @@
 import {
   createNearestLookup,
-  random,
   center,
   angle,
   repeat,
-  distance,
   inverse,
   difference,
 } from '../../../src'
+import { random } from 'random-fns'
 
 const cachedRandom = createNearestLookup(10, random)
 

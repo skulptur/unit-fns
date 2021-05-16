@@ -1,4 +1,5 @@
-import { createNoise3d, radial } from '../../../src'
+import { radial } from '../../../src'
+import { createNoise3d } from 'random-fns'
 
 const noise3d = createNoise3d(0)
 

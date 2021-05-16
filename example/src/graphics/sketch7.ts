@@ -1,4 +1,5 @@
-import { createNoise2d, radial, center } from '../../../src'
+import { radial, center } from '../../../src'
+import { createNoise2d } from 'random-fns'
 
 const noise2d = createNoise2d(0)
 
