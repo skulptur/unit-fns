@@ -16,6 +16,7 @@
     "random-fns": "^0.1.3",
     "react-app-polyfill": "^1.0.0",
     "react-is": ">= 16.8.0",
+    "react-router-dom": "^6.2.2",
     "rendered": "^0.1.2",
     "scr": "^1.0.0",
     "src": "^1.1.2",
