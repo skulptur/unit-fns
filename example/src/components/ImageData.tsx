@@ -29,7 +29,7 @@ export const ImageData: React.FC<ImageDataProps> = ({
 
   return (
     <>
-      <button
+      {/* <button
         onClick={() => {
           canvasRef.current?.toBlob(blob => {
             blob && saveAs(blob, 'image')
@@ -37,7 +37,7 @@ export const ImageData: React.FC<ImageDataProps> = ({
         }}
       >
         download
-      </button>
+      </button> */}
       <canvas
         ref={canvasRef}
         onClick={event => {

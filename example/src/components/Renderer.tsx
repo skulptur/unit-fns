@@ -1,8 +1,23 @@
 import * as React from 'react'
-import { useParams } from 'react-router-dom'
-import { clamp } from '../utils/clamp'
-import { Unit } from '../../../src'
+import { quantize, repeat, Unit } from '../../../src'
 import { ImageData } from './ImageData'
+
+// makes a new number to be used as z
+const grid = (
+  gridX: number,
+  gridY: number,
+  fn3d: (x: Unit, y: Unit, z: Unit) => Unit
+) => {
+  const fractionX = 1 / gridX
+  const fractionY = 1 / gridY
+  // not sure this is correct
+  const frac = 2 / (gridX + gridY)
+
+  return (x: Unit, y: Unit): Unit => {
+    const z = quantize(fractionY, y) + quantize(fractionX, x) * frac
+    return fn3d(repeat(fractionX, x), repeat(fractionY, y), z)
+  }
+}
 
 type RendererBaseProps = {
   width: number
@@ -11,47 +26,41 @@ type RendererBaseProps = {
 
 type Renderer2d = {
   kind: '2d'
-  sketches: Array<(x: Unit, y: Unit) => Unit>
+  sketch: (x: Unit, y: Unit) => Unit
 } & RendererBaseProps
 
-type Renderer3d = {
-  kind: '3d'
-  sketches: Array<(x: Unit, y: Unit, z: Unit) => Unit>
+type RendererGrid = {
+  kind: 'grid'
+  gridX: number
+  gridY: number
+  sketch: (x: Unit, y: Unit, z: Unit) => Unit
 } & RendererBaseProps
 
-export type RendererProps = Renderer2d | Renderer3d
+export type RendererProps = Renderer2d | RendererGrid
 
-export const Renderer = ({ sketches, kind, width, height }: RendererProps) => {
-  const params = useParams<{ id: string }>()
-  const currentId = parseInt(params.id || '0', 10)
-
-  const goTo = (targetId: number) => {
-    const redirectId = clamp(targetId, 0, sketches.length - 1)
-    if (redirectId === currentId) return
-    location.href = `${location.origin}/${redirectId}`
-  }
-
-  const onNavigate = (targetId: number) => () => goTo(targetId)
-
-  React.useEffect(() => {
-    if (currentId < 0 || currentId > sketches.length - 1) {
-      goTo(0)
-    }
-  }, [currentId])
-
+export const Renderer = ({
+  sketch,
+  kind,
+  width,
+  height,
+  ...props
+}: RendererProps) => {
   return (
     <div>
-      <button onClick={onNavigate(currentId - 1)}>previous</button>
-      <button onClick={onNavigate(currentId + 1)}>next</button>
-      <div key={currentId}>
-        {kind === '2d' && (
-          <ImageData
-            width={width}
-            height={height}
-            onSample={sketches[currentId]}
-          />
-        )}
-      </div>
+      {kind === '2d' && (
+        <ImageData width={width} height={height} onSample={sketch} />
+      )}
+      {kind === 'grid' && (
+        <ImageData
+          width={width}
+          height={height}
+          onSample={grid(
+            (props as RendererGrid).gridX,
+            (props as RendererGrid).gridY,
+            sketch
+          )}
+        />
+      )}
     </div>
   )
 }
