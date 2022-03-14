@@ -7,11 +7,11 @@ export { unitMin } from './core/unitMin'
 // number
 export { clip } from './number/clip'
 export { fraction } from './number/fraction'
+export { fractional } from './number/fractional'
 export { mapFrom } from './number/mapFrom'
 export { mapRange } from './number/mapRange'
 export { mapTo } from './number/mapTo'
 export { radiansToUnit } from './number/radiansToUnit'
-export { subdivision } from './number/subdivision'
 export { toIndex } from './number/toIndex'
 export { wrap } from './number/wrap'
 

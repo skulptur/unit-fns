@@ -1,5 +1,6 @@
 import { Unit } from '../core/Unit'
+import { unitMax } from '../core/unitMax'
 
 export const fraction = (value: number): Unit => {
-  return Math.abs(value % 1) as Unit
+  return (unitMax / value) as Unit
 }
