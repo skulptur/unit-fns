@@ -13,6 +13,7 @@ export { mapRange } from './number/mapRange'
 export { mapTo } from './number/mapTo'
 export { radiansToUnit } from './number/radiansToUnit'
 export { toIndex } from './number/toIndex'
+export { wrapInclusive } from './number/wrapInclusive'
 export { wrap } from './number/wrap'
 
 // 1d

@@ -1,6 +1,6 @@
 import { Unit } from '../core/Unit'
-import { wrap } from './wrap'
+import { wrapInclusive } from './wrapInclusive'
 
 export const degreesToUnit = (degrees: number): Unit => {
-  return wrap(degrees / 360)
+  return wrapInclusive(degrees / 360)
 }
