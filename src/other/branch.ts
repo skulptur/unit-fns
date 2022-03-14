@@ -1,4 +1,4 @@
-import { Unit } from 'core/Unit'
+import { Unit } from '../core/Unit'
 
 export const branch = (
   a: (unit: Unit) => Unit,

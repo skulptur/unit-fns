@@ -1,23 +1,6 @@
 import * as React from 'react'
-import { quantize, repeat, Unit } from '../../../src'
+import { createTiles, Unit } from '../../../src'
 import { ImageData } from './ImageData'
-
-// makes a new number to be used as z
-const grid = (
-  gridX: number,
-  gridY: number,
-  fn3d: (x: Unit, y: Unit, z: Unit) => Unit
-) => {
-  const fractionX = 1 / gridX
-  const fractionY = 1 / gridY
-  // not sure this is correct
-  const frac = 2 / (gridX + gridY)
-
-  return (x: Unit, y: Unit): Unit => {
-    const z = quantize(fractionY, y) + quantize(fractionX, x) * frac
-    return fn3d(repeat(fractionX, x), repeat(fractionY, y), z)
-  }
-}
 
 type RendererBaseProps = {
   width: number
@@ -54,7 +37,7 @@ export const Renderer = ({
         <ImageData
           width={width}
           height={height}
-          onSample={grid(
+          onSample={createTiles(
             (props as RendererGrid).gridX,
             (props as RendererGrid).gridY,
             sketch

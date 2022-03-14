@@ -1,12 +1,9 @@
 import { branch, repeat, center } from '../../../src'
 
 export const animation1 = (x: number, y: number, z: number) => {
-  const r = repeat(center(z), 1 - center(x) * center(y))
-  return r
   const xCoord = center(x)
   const yCoord = center(y)
-
-  const centerZ = center((z + r) / 2)
+  const centerZ = center(z)
 
   return branch(
     () => repeat(xCoord, (centerZ + x) / 2),

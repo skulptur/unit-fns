@@ -6,32 +6,26 @@ import * as animationsMap from './src/animations'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Renderer } from './src/components/Renderer'
 import { useNavigation } from './src/components/useNavigation'
-import { loop } from './src/utils/loop'
+import { spritePlayer } from './src/utils/spritePlayer'
 
 const sketches = Object.values(sketchMap)
 const animations = Object.values(animationsMap)
-const width = 8000
-const height = 8000
-const gridX = 10
-const gridY = 10
+
+const sizeProps = {
+  width: 5000,
+  height: 5000,
+  gridX: 10,
+  gridY: 10,
+}
 
 const App = () => {
   const { previous, next, currentId } = useNavigation(sketches.length)
-  const posRef = React.useRef<HTMLDivElement>(null)
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
-    let currentFrame = 0
-    const stop = loop(() => {
-      const multX = currentFrame % gridX
-      const frameWidth = width / gridX
-      const multY = Math.floor(currentFrame / gridY) % gridY
-      const frameHeight = height / gridY
-
-      posRef.current!.style.transform = `translate(-${frameWidth *
-        multX}px, -${frameHeight * multY}px)`
-
-      currentFrame++
-    })
+    const wrapper = wrapperRef.current!
+    const { start, stop } = spritePlayer({ ...sizeProps, wrapper })
+    start()
 
     return stop
   }, [])
@@ -46,22 +40,9 @@ const App = () => {
         sketches={sketches}
         kind="2d"
       /> */}
-      <div
-        style={{
-          width: width / gridX,
-          height: height / gridY,
-          overflow: 'hidden',
-        }}
-      >
-        <div ref={posRef}>
-          <Renderer
-            width={width}
-            height={height}
-            sketch={animations[currentId]}
-            kind="grid"
-            gridX={gridX}
-            gridY={gridY}
-          />
+      <div ref={wrapperRef}>
+        <div>
+          <Renderer {...sizeProps} sketch={animations[currentId]} kind="grid" />
         </div>
       </div>
     </div>

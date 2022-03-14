@@ -53,4 +53,6 @@ export { toggle } from './3d/toggle'
 // other
 export { branch } from './other/branch'
 export { createNearestLookup } from './other/createNearestLookup'
+export { createBands } from './other/createBands'
+export { createTiles } from './other/createTiles'
 export { fit } from './other/fit'

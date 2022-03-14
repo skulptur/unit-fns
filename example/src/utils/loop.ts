@@ -1,11 +1,14 @@
-export const loop = (onFrame: () => void) => {
+export const loop = (
+  onFrame: (currentFrame: number, timestamp: number) => void
+) => {
   let done = false
+  let currentFrame = 0
 
-  function step() {
-    onFrame()
+  function step(timestamp: number) {
+    onFrame(currentFrame, timestamp)
     if (done) return
+    currentFrame++
     window.requestAnimationFrame(step)
-    // setTimeout(() => window.requestAnimationFrame(step), 5)
   }
 
   window.requestAnimationFrame(step)
