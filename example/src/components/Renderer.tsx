@@ -12,14 +12,14 @@ type Renderer2d = {
   sketch: (x: Unit, y: Unit) => Unit
 } & RendererBaseProps
 
-type RendererGrid = {
-  kind: 'grid'
-  gridX: number
-  gridY: number
+type RendererTile = {
+  kind: 'tile'
+  tileX: number
+  tileY: number
   sketch: (x: Unit, y: Unit, z: Unit) => Unit
 } & RendererBaseProps
 
-export type RendererProps = Renderer2d | RendererGrid
+export type RendererProps = Renderer2d | RendererTile
 
 export const Renderer = ({
   sketch,
@@ -31,15 +31,15 @@ export const Renderer = ({
   return (
     <div>
       {kind === '2d' && (
-        <ImageData width={width} height={height} onSample={sketch} />
+        <ImageData width={width} height={height} onSample={sketch as Renderer2d['sketch']} />
       )}
-      {kind === 'grid' && (
+      {kind === 'tile' && (
         <ImageData
           width={width}
           height={height}
           onSample={createTiles(
-            (props as RendererGrid).gridX,
-            (props as RendererGrid).gridY,
+            (props as RendererTile).tileX,
+            (props as RendererTile).tileY,
             sketch
           )}
         />

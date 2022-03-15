@@ -11,11 +11,17 @@ import { spritePlayer } from './src/utils/spritePlayer'
 const sketches = Object.values(sketchMap)
 const animations = Object.values(animationsMap)
 
+const sizeFromRatio = (width: number, ratio: number) => {
+  return {
+    width,
+    height: Math.floor(width * ratio)
+  }
+}
+
 const sizeProps = {
-  width: 8000,
-  height: 8000,
-  gridX: 10,
-  gridY: 10,
+  ...sizeFromRatio(4000,  1920 / 1080),
+  tileX: 10,
+  tileY: 10,
 }
 
 const App = () => {
@@ -24,10 +30,10 @@ const App = () => {
 
   React.useEffect(() => {
     const wrapper = wrapperRef.current!
-    const { start, stop } = spritePlayer({ ...sizeProps, wrapper })
-    start()
+    const player = spritePlayer({ ...sizeProps, wrapper })
+    player.start()
 
-    return stop
+    return player.stop
   }, [])
 
   return (
@@ -42,7 +48,7 @@ const App = () => {
       /> */}
       <div ref={wrapperRef}>
         <div>
-          <Renderer {...sizeProps} sketch={animations[currentId]} kind="grid" />
+          <Renderer {...sizeProps} sketch={animations[currentId]} kind="tile" />
         </div>
       </div>
     </div>
