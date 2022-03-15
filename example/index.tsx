@@ -12,8 +12,8 @@ const sketches = Object.values(sketchMap)
 const animations = Object.values(animationsMap)
 
 const sizeProps = {
-  width: 5000,
-  height: 5000,
+  width: 8000,
+  height: 8000,
   gridX: 10,
   gridY: 10,
 }
