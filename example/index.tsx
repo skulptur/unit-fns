@@ -18,7 +18,7 @@ const sizeFromRatio = (width: number, ratio: number) => {
 }
 
 const sizeProps = {
-  ...sizeFromRatio(5000, 1920 / 1080),
+  ...sizeFromRatio(3000, 1920 / 1080),
   tileX: 10,
   tileY: 10,
 }
@@ -34,7 +34,7 @@ const App = () => {
     <div>
       <button onClick={previous}>previous</button>
       <button onClick={next}>next</button>
-      <button onClick={next}>save</button>
+      <button onClick={() => props.onSave()}>save</button>
 
       <Renderer {...props} />
     </div>
