@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom'
 import * as sketchMap from './src/graphics'
 import * as animationsMap from './src/animations'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Renderer } from './src/components/Renderer'
+import { Renderer, useAnimatedRenderer } from './src/components/Renderer'
 import { useNavigation } from './src/components/useNavigation'
 
 const sketches = Object.values(sketchMap)
@@ -25,29 +25,18 @@ const sizeProps = {
 
 const App = () => {
   const { previous, next, currentId } = useNavigation(sketches.length)
-  const [isPlaying, setIsPlaying] = React.useState(true)
+  const props = useAnimatedRenderer({
+    ...sizeProps,
+    onSample: animations[currentId],
+  })
 
   return (
     <div>
       <button onClick={previous}>previous</button>
       <button onClick={next}>next</button>
-      {/* <Renderer
-        width={width}
-        height={height}
-        sketches={sketches}
-        kind="2d"
-      /> */}
+      <button onClick={next}>save</button>
 
-      <Renderer
-        play={isPlaying}
-        onClick={() => {
-          console.log('click')
-          setIsPlaying(!isPlaying)
-        }}
-        {...sizeProps}
-        sketch={animations[currentId]}
-        kind="tile"
-      />
+      <Renderer {...props} />
     </div>
   )
 }

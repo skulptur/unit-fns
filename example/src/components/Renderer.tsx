@@ -3,72 +3,95 @@ import { createTiles, Unit } from '../../../src'
 import { ImageData } from './ImageData'
 import { spritePlayer } from '../utils/spritePlayer'
 
-type RendererBaseProps = {
+type RendererProps = {
   width: number
   height: number
   onClick?: (
     event: React.MouseEvent<HTMLCanvasElement, MouseEvent>,
-    sise: { x: number; y: number }
+    size: { x: number; y: number }
   ) => void
+  onSample: (x: Unit, y: Unit) => Unit
+  wrapperRef: React.RefObject<HTMLDivElement>
 }
 
-type Renderer2d = {
-  kind: '2d'
-  sketch: (x: Unit, y: Unit) => Unit
-} & RendererBaseProps
-
-type RendererTile = {
-  kind: 'tile'
+type UseAnimatedRenderer = {
   tileX: number
   tileY: number
-  play: boolean
-  sketch: (x: Unit, y: Unit, z: Unit) => Unit
-} & RendererBaseProps
+  isPlaying?: boolean
+  onSample: (x: Unit, y: Unit, z: Unit) => Unit
+} & Omit<RendererProps, 'onSample' | 'wrapperRef'>
 
-export type RendererProps = Renderer2d | RendererTile
-
-export const Renderer = ({
-  sketch,
-  kind,
+export const useAnimatedRenderer = ({
+  isPlaying = true,
+  onSample,
+  onClick,
+  tileX,
+  tileY,
   width,
   height,
-  onClick,
-  ...props
-}: RendererProps) => {
+}: UseAnimatedRenderer) => {
+  const [_isPlaying, setIsPlaying] = React.useState(isPlaying)
   const wrapperRef = React.useRef<HTMLDivElement>(null)
 
+  const _onSample = React.useCallback(createTiles(tileX, tileY, onSample), [
+    onSample,
+    tileX,
+    tileY,
+  ])
+
+  const _onClick = React.useCallback(
+    (
+      event: React.MouseEvent<HTMLCanvasElement, MouseEvent>,
+      size: { x: number; y: number }
+    ) => {
+      setIsPlaying(!_isPlaying)
+      onClick && onClick(event, size)
+    },
+    [_isPlaying, setIsPlaying, onClick]
+  )
+
   React.useEffect(() => {
-    if ('play' in props && props.play) {
+    if (_isPlaying) {
       const wrapper = wrapperRef.current!
-      const player = spritePlayer({ ...props, width, height, wrapper })
+      const player = spritePlayer({
+        tileX,
+        tileY,
+        width,
+        height,
+        wrapper,
+      })
       player.start()
 
       return player.stop
     }
-  }, ['play' in props && props.play])
+  }, [_isPlaying])
 
+  return {
+    isPlaying: _isPlaying,
+    setIsPlaying,
+    wrapperRef,
+    onSample: _onSample,
+    onClick: _onClick,
+    width: width,
+    height: height,
+  }
+}
+
+export const Renderer = ({
+  onSample,
+  width,
+  height,
+  onClick,
+  wrapperRef,
+}: RendererProps) => {
   return (
     <div ref={wrapperRef}>
-      {kind === '2d' && (
-        <ImageData
-          width={width}
-          height={height}
-          onClick={onClick}
-          onSample={sketch as Renderer2d['sketch']}
-        />
-      )}
-      {kind === 'tile' && (
-        <ImageData
-          width={width}
-          height={height}
-          onClick={onClick}
-          onSample={createTiles(
-            (props as RendererTile).tileX,
-            (props as RendererTile).tileY,
-            sketch
-          )}
-        />
-      )}
+      <ImageData
+        width={width}
+        height={height}
+        onClick={onClick}
+        onSample={onSample}
+      />
     </div>
   )
 }
