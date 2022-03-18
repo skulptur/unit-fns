@@ -5,6 +5,58 @@ import { useCanvas } from './useCanvas'
 import { putImageData } from '../utils/putImageData'
 import { renderGreyscaleImage } from '../utils/renderGreyscaleImage'
 import { saveAs } from 'file-saver'
+import { scaleCanvas } from '../utils/scaleCanvas'
+
+type VanillaRendererProps = {
+  wrapper: HTMLElement
+}
+
+export const renderer = (props: UseAnimatedRenderer & VanillaRendererProps) => {
+  const createCanvas = (container: HTMLElement) => {
+    const canvas = document.createElement('canvas')
+    const context = canvas.getContext('2d')!
+    scaleCanvas(props.width, props.height, props.pixelRatio, canvas, context)
+    canvas.style.margin = `${0}px`
+    canvas.style.padding = `${0}px`
+
+    container.appendChild(canvas)
+
+    return { canvas, context }
+  }
+
+  const createCanvases = (length: number) => {
+    // so they tile and we can use the sprite player
+    const container = document.createElement('div')
+    container.style.width = `${props.width * props.tileX}px`
+    container.style.height = `${props.height * props.tileY}px`
+    container.style.display = 'flex'
+    container.style.flexWrap = 'wrap'
+
+    props.wrapper.appendChild(container)
+
+    return Array.from({ length }, () => {
+      return createCanvas(container)
+    })
+  }
+
+  const canvases = createCanvases(props.tileX * props.tileY)
+
+  // render
+  canvases.forEach(({ context }, i) => {
+    const length = canvases.length
+    putImageData(
+      renderGreyscaleImage((x, y) => props.onSample(x, y, i / length), context),
+      context
+    )
+  })
+
+  const player = spritePlayer(props)
+
+  return {
+    canvases,
+    player,
+  }
+}
 
 type RendererSharedProps = {
   onClick?: (
@@ -29,6 +81,7 @@ type UseAnimatedRenderer = {
   onSample: (x: Unit, y: Unit, z: Unit) => Unit
 } & RendererSharedProps
 
+// TODO: support any number of canvas elements... probably should use vanilla js for everything (create the canvases etc)
 export const useAnimatedRenderer = ({
   isPlaying = true,
   onSample,

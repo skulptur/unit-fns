@@ -1,7 +1,7 @@
 export const scaleCanvas = (
   width: number,
   height: number,
-  pixelRatio: number,
+  pixelRatio: number = devicePixelRatio,
   canvas: HTMLCanvasElement,
   context: CanvasRenderingContext2D
 ) => {

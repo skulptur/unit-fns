@@ -15,8 +15,8 @@ export const spritePlayer = ({
   width,
   height,
 }: PlaySpriteProps) => {
-  wrapper.style.width = `${width / tileX}px`
-  wrapper.style.height = `${height / tileY}px`
+  wrapper.style.width = `${width}px`
+  wrapper.style.height = `${height}px`
   wrapper.style.overflow = 'hidden'
 
   const child = wrapper.firstElementChild as HTMLDivElement
@@ -29,10 +29,10 @@ export const spritePlayer = ({
 
   const start = () => {
     stopFn = loop(currentFrame => {
+      const frameWidth = width
+      const frameHeight = height
       const multX = currentFrame % tileX
-      const frameWidth = width / tileX
       const multY = Math.floor(currentFrame / tileY) % tileY
-      const frameHeight = height / tileY
 
       child.style.transform = `translate(-${frameWidth *
         multX}px, -${frameHeight * multY}px)`
