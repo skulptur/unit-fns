@@ -3,12 +3,15 @@ import { createTiles, Unit } from '../../../src'
 import { spritePlayer } from '../utils/spritePlayer'
 import { useCanvas } from './useCanvas'
 import { putImageData } from '../utils/putImageData'
+import { unblock } from '../utils/unblock'
 import { renderGreyscaleImage } from '../utils/renderGreyscaleImage'
 import { saveAs } from 'file-saver'
 import { scaleCanvas } from '../utils/scaleCanvas'
 
 type VanillaRendererProps = {
   wrapper: HTMLElement
+  onDone?: () => void
+  onProgress?: (complete: Unit) => void
 }
 
 export const renderer = (props: UseAnimatedRenderer & VanillaRendererProps) => {
@@ -42,13 +45,26 @@ export const renderer = (props: UseAnimatedRenderer & VanillaRendererProps) => {
   const canvases = createCanvases(props.tileX * props.tileY)
 
   // render
-  canvases.forEach(({ context }, i) => {
+  let complete = 0
+  const renderPromises = canvases.map(({ context }, i) => {
     const length = canvases.length
-    putImageData(
-      renderGreyscaleImage((x, y) => props.onSample(x, y, i / length), context),
-      context
-    )
+
+    return unblock(() => {
+      putImageData(
+        renderGreyscaleImage(
+          (x, y) => props.onSample(x, y, i / length),
+          context
+        ),
+        context
+      )
+      complete++
+
+      props.onProgress && props.onProgress(complete / length)
+    })
   })
+
+  // event callback
+  props.onDone && Promise.all(renderPromises).then(props.onDone)
 
   const player = spritePlayer(props)
 
