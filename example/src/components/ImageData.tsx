@@ -10,6 +10,10 @@ type ImageDataProps = {
   height: number
   onSample: (x: Unit, y: Unit) => Unit
   pixelRatio?: number
+  onClick?: (
+    event: React.MouseEvent<HTMLCanvasElement, MouseEvent>,
+    sise: { x: number; y: number }
+  ) => void
 }
 
 export const ImageData: React.FC<ImageDataProps> = ({
@@ -17,15 +21,15 @@ export const ImageData: React.FC<ImageDataProps> = ({
   height,
   pixelRatio,
   onSample,
+  onClick = () => {},
 }) => {
   const { canvasRef, contextRef } = useCanvas({ width, height, pixelRatio })
-  const [{ x: mouseX, y: mouseY }, setMousePosition] = useState({ x: 1, y: 1 })
 
   useEffect(() => {
     if (!canvasRef.current) return
     const context = contextRef.current!
     putImageData(renderGreyscaleImage(onSample, context), context)
-  }, [mouseX, mouseY])
+  }, [])
 
   return (
     <>
@@ -47,7 +51,7 @@ export const ImageData: React.FC<ImageDataProps> = ({
           const y =
             (event.clientY - rect.top) / event.currentTarget.clientHeight
 
-          setMousePosition({ x, y })
+          onClick(event, { x, y })
         }}
       />
     </>
