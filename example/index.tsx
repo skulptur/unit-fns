@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom'
 import * as sketchMap from './src/graphics'
 import * as animationsMap from './src/animations'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { renderer } from './src/components/Renderer'
+import { createRenderer, Renderer } from './src/components/Renderer'
 import { useNavigation } from './src/components/useNavigation'
 
 const sketches = Object.values(sketchMap)
@@ -18,7 +18,7 @@ const sizeFromRatio = (width: number, ratio: number) => {
 }
 
 const sizeProps = {
-  ...sizeFromRatio(500, 1920 / 1080),
+  ...sizeFromRatio(1800, 1080 / 1920),
   tileX: 10,
   tileY: 10,
 }
@@ -28,9 +28,10 @@ const App = () => {
   const wrapperRef = React.useRef<HTMLDivElement>(null)
   const [progress, setProgress] = React.useState(0)
   const [isDone, setIsDone] = React.useState(false)
+  const [renderer, setRenderer] = React.useState<Renderer | null>(null)
 
   React.useEffect(() => {
-    const { player } = renderer({
+    const renderer = createRenderer({
       ...sizeProps,
       onSample: animations[currentId],
       wrapper: wrapperRef.current!,
@@ -38,7 +39,9 @@ const App = () => {
       onDone: () => setIsDone(true),
     })
 
-    player.start()
+    setRenderer(renderer)
+
+    renderer.player.start()
   }, [])
 
   return (
@@ -57,7 +60,6 @@ const App = () => {
         />
         <div ref={wrapperRef} />
       </div>
-      {/* <Renderer {...props} /> */}
     </div>
   )
 }

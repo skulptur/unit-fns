@@ -19,6 +19,7 @@ export const spritePlayer = ({
   wrapper.style.height = `${height}px`
   wrapper.style.overflow = 'hidden'
 
+  let _isPlaying = false
   const child = wrapper.firstElementChild as HTMLDivElement
 
   if (!child) {
@@ -28,6 +29,7 @@ export const spritePlayer = ({
   let stopFn = () => {}
 
   const start = () => {
+    _isPlaying = true
     stopFn = loop(currentFrame => {
       const frameWidth = width
       const frameHeight = height
@@ -40,11 +42,17 @@ export const spritePlayer = ({
   }
 
   const stop = () => {
+    _isPlaying = false
     stopFn()
+  }
+
+  const isPlaying = () => {
+    return _isPlaying
   }
 
   return {
     start,
     stop,
+    isPlaying,
   }
 }

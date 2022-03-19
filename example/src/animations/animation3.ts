@@ -1,12 +1,9 @@
-import { branch, repeat, center, offset } from '../../../src'
+import { angle, repeat, center, offset } from '../../../src'
 
 export const animation3 = (x: number, y: number, z: number) => {
-  const xCoord = center(offset(z, x))
-  const yCoord = center(offset(z, y))
+  const centerZ = center(z)
+  const xCoord = angle(center(offset(x, z)), centerZ)
+  const yCoord = angle(centerZ, center(offset(y, z)))
 
-  return branch(
-    () => repeat(x, xCoord),
-    () => repeat(y, yCoord),
-    repeat(offset(xCoord, z), offset(yCoord, z))
-  )
+  return repeat(xCoord, yCoord)
 }
