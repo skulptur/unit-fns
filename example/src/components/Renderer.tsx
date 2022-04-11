@@ -3,10 +3,14 @@ import { spritePlayer } from '../utils/spritePlayer'
 import { putImageData } from '../utils/putImageData'
 import { unblock } from '../utils/unblock'
 import { renderGreyscaleImage } from '../utils/renderGreyscaleImage'
-import { saveAs } from 'file-saver'
 import { scaleCanvas } from '../utils/scaleCanvas'
 
 export type Renderer = ReturnType<typeof createRenderer>
+
+// TODO: allow using multiple types of renderer:
+// black and white (single fn applies to all channels)
+// channel mapped (single fn for generating nums and 3 fns to map channels)
+// rgb (3 separate fns to generate each channel)
 
 type RendererProps = {
   width: number
