@@ -1,5 +1,4 @@
 import {
-  // round,
   bounce,
   center,
   circular,
@@ -15,8 +14,6 @@ import {
   triangle,
 } from './unary'
 import { Unit } from './core'
-// import { unitMin } from './core'
-// import { unitMax } from './core'
 import { validateUnaryUnitFn } from './utils/testUtils'
 
 describe('unary functions', () => {
