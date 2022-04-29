@@ -1,7 +1,7 @@
-import { inverse, linear, round } from './1d'
-import { Unit } from './core/Unit'
-import { unitMin } from './core/unitMin'
-import { unitMax } from './core/unitMax'
+import { inverse, linear, round } from './unary'
+import { Unit } from './core'
+import { unitMin } from './core'
+import { unitMax } from './core'
 
 describe('inverse', () => {
   it('inverse linear', () => {

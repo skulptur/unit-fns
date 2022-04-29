@@ -1,13 +1,13 @@
-import { Unit, radiansToUnit } from '.'
+import { Unit } from './core'
 import { HALF_PI } from './constants'
-import { threshold } from './2d/threshold'
+import { threshold } from './binary'
 
 export const round = (x: Unit): Unit => {
   return threshold(0.5, x)
 }
 
 // TODO: rename
-const atan = (x: Unit) => radiansToUnit(Math.atan(x))
+// const atan = (x: Unit) => radiansToUnit(Math.atan(x))
 
 export const bounce = (x: Unit): Unit => {
   const n1 = 7.5625
