@@ -16,21 +16,22 @@ export { toIndex } from './number/toIndex'
 export { wrapInclusive } from './number/wrapInclusive'
 export { wrap } from './number/wrap'
 
-// 1d
-export { bounce } from './1d/bounce'
-export { center } from './1d/center'
-export { circular } from './1d/circular'
-export { cosine } from './1d/cosine'
-export { cubic } from './1d/cubic'
-export { exponential } from './1d/exponential'
-export { inverse } from './1d/inverse'
-export { linear } from './1d/linear'
-export { quadratic } from './1d/quadratic'
-export { quartic } from './1d/quartic'
-export { quintic } from './1d/quintic'
-export { round } from './1d/round'
-export { sine } from './1d/sine'
-export { triangle } from './1d/triangle'
+export {
+  bounce,
+  center,
+  circular,
+  cosine,
+  cubic,
+  exponential,
+  inverse,
+  linear,
+  quadratic,
+  quartic,
+  quintic,
+  round,
+  sine,
+  triangle,
+} from './1d'
 
 // 2d
 export { angle } from './2d/angle'
