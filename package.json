@@ -33,6 +33,7 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "data-fns": "^0.1.8",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",

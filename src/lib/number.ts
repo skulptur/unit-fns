@@ -19,17 +19,21 @@ export const fractional = (value: number): Unit => {
   return Math.abs(value % 1) as Unit
 }
 
-export const mapRange = <T extends number = number>(
+export const mapRange = (
   inMin: number,
   inMax: number,
-  outMin: T,
-  outMax: T,
+  outMin: number,
+  outMax: number,
   value: number
-): T => {
-  return (((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin) as T
+): number => {
+  return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
 }
 
-export const mapFrom = (inMin: number, inMax: number, value: number): Unit => {
+export const mapToUnit = (
+  inMin: number,
+  inMax: number,
+  value: number
+): Unit => {
   return mapRange(inMin, inMax, unitMin, unitMax, value)
 }
 

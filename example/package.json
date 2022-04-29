@@ -26,6 +26,7 @@
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.8.4",
+    "data-fns": "^0.1.8",
     "parcel": "^1.12.3",
     "react": ">= 16.8.0",
     "react-dom": ">= 16.8.0",

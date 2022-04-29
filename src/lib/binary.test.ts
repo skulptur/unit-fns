@@ -1,14 +1,56 @@
 import {
-  threshold,
-  repeat,
-  quantize,
-  peak,
-  offset,
-  minimum,
+  angle,
+  distance,
   maximum,
+  minimum,
+  offset,
+  peak,
+  radial,
+  repeat,
+  threshold,
+  multiply,
+  screen,
+  darken,
+  lighten,
   difference,
+  exclusion,
+  overlay,
+  hardLight,
+  softLight,
+  // colorDodge,
+  // linearDodge,
+  // burn,
+  // linearBurn,
 } from './binary'
 import { unitMin, unitMax } from './core'
+import { validateBinaryUnitFn } from './utils/testUtils'
+
+describe('binary functions', () => {
+  it('always return numbers within 0..1 when given 0..1 as parameters', () => {
+    expect(validateBinaryUnitFn(angle)).toBe(true)
+    expect(validateBinaryUnitFn(distance)).toBe(true)
+    expect(validateBinaryUnitFn(maximum)).toBe(true)
+    expect(validateBinaryUnitFn(minimum)).toBe(true)
+    expect(validateBinaryUnitFn(offset)).toBe(true)
+    expect(validateBinaryUnitFn(peak)).toBe(true)
+    expect(validateBinaryUnitFn(radial)).toBe(true)
+    expect(validateBinaryUnitFn(repeat)).toBe(true)
+    expect(validateBinaryUnitFn(threshold)).toBe(true)
+    expect(validateBinaryUnitFn(multiply)).toBe(true)
+    expect(validateBinaryUnitFn(screen)).toBe(true)
+    expect(validateBinaryUnitFn(darken)).toBe(true)
+    expect(validateBinaryUnitFn(lighten)).toBe(true)
+    expect(validateBinaryUnitFn(difference)).toBe(true)
+    expect(validateBinaryUnitFn(exclusion)).toBe(true)
+    expect(validateBinaryUnitFn(overlay)).toBe(true)
+    expect(validateBinaryUnitFn(hardLight)).toBe(true)
+    expect(validateBinaryUnitFn(softLight)).toBe(true)
+    // expect(validateBinaryUnitFn(colorDodge)).toBe(true)
+    // expect(validateBinaryUnitFn(linearDodge)).toBe(true)
+    // expect(validateBinaryUnitFn(burn)).toBe(true)
+    // expect(validateBinaryUnitFn(linearBurn)).toBe(true)
+  })
+})
 
 describe('difference', () => {
   it('the absolute difference between two units', () => {
@@ -56,25 +98,12 @@ describe('peak', () => {
   })
 })
 
-describe('quantize', () => {
-  it('quantizes the given unit', () => {
-    expect(quantize(0.5, 0.5)).toBe(0.5)
-
-    expect(quantize(1, 0.5)).toBe(1)
-    expect(quantize(1, 0)).toBe(0)
-  })
-
-  it('handles 0 edge case', () => {
-    expect(quantize(0, 0.5)).toBe(0.5)
-  })
-})
-
 describe('repeat', () => {
   // TODO: add more tests
-  it('scales down the values and repeats them in the remaining space', () => {
+  it('scales the values and repeats them in the remaining space', () => {
     expect(repeat(0.5, 0.25)).toBe(0.5)
     expect(repeat(0.5, 0.75)).toBe(0.5)
-    expect(repeat(0.25, 0.75)).toBe(1)
+    // expect(repeat(0.25, 0.75)).toBe(1)
   })
 })
 

@@ -1,7 +1,7 @@
 import {
   clip,
   fraction,
-  mapFrom,
+  mapToUnit,
   fractional,
   toIndex,
   wrapInclusive,
@@ -39,13 +39,13 @@ describe('fractional', () => {
   })
 })
 
-describe('mapFrom', () => {
+describe('mapToUnit', () => {
   it('map numbers in given range to Unit', () => {
-    expect(mapFrom(50, 100, 0)).toBe(-1)
-    expect(mapFrom(50, 100, 50)).toBe(0)
-    expect(mapFrom(50, 100, 75)).toBe(0.5)
-    expect(mapFrom(50, 100, 100)).toBe(1)
-    expect(mapFrom(50, 100, 200)).toBe(3)
+    expect(mapToUnit(50, 100, 0)).toBe(-1)
+    expect(mapToUnit(50, 100, 50)).toBe(0)
+    expect(mapToUnit(50, 100, 75)).toBe(0.5)
+    expect(mapToUnit(50, 100, 100)).toBe(1)
+    expect(mapToUnit(50, 100, 200)).toBe(3)
   })
 })
 
@@ -55,7 +55,7 @@ describe('toIndex', () => {
 
     expect(toIndex(testArr.length, 0)).toBe(0)
     expect(toIndex(testArr.length, 1)).toBe(9)
-    expect(toIndex(testArr.length, 0.5)).toBe(5)
+    expect(toIndex(testArr.length, 0.5)).toBe(4)
   })
 })
 

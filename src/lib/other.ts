@@ -1,5 +1,5 @@
 import { Unit, unitMax } from './core'
-import { quantize, repeat } from './binary'
+import { repeat } from './binary'
 import { fraction, toIndex } from './number'
 
 export const branch = (
@@ -32,6 +32,8 @@ export const createBands = (fn: typeof Math.round) => (
 
   return fn(value * bands) / bands
 }
+
+export const quantize = createBands(Math.floor)
 
 export const createNearestLookup = (
   length: number,
