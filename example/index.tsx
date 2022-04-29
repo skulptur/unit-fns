@@ -18,7 +18,9 @@ const sizeFromRatio = (width: number, ratio: number) => {
 }
 
 const sizeProps = {
-  ...sizeFromRatio(1800, 1080 / 1920),
+  // ...sizeFromRatio(500, 500),
+  width: 500,
+  height: 500,
   tileX: 10,
   tileY: 10,
 }
@@ -30,6 +32,7 @@ const App = () => {
   const [isDone, setIsDone] = React.useState(false)
   const [renderer, setRenderer] = React.useState<Renderer | null>(null)
 
+  console.log('here')
   React.useEffect(() => {
     const renderer = createRenderer({
       ...sizeProps,
