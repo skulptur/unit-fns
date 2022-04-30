@@ -29,9 +29,8 @@ export const radial = (x: number, y: number) => {
 }
 
 export const repeat = (scale: Unit, t: Unit): Unit => {
-  // if (scale === 0) return t
   const times = 1 / scale
-  return ((t * times) % 1) as Unit
+  return (t * times) % 1
 }
 
 export const threshold = (threshold: Unit, t: Unit): Unit => {

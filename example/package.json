@@ -17,6 +17,7 @@
     "react-app-polyfill": "^1.0.0",
     "react-is": ">= 16.8.0",
     "react-router-dom": "^6.2.2",
+    "regl": "^2.1.0",
     "rendered": "^0.1.2",
     "scr": "^1.0.0",
     "src": "^1.1.2",

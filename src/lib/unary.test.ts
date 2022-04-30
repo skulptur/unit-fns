@@ -36,29 +36,29 @@ describe('unary functions', () => {
 
 describe('inverse', () => {
   it('inverse linear', () => {
-    expect(inverse(0 as Unit)).toBe(1)
-    expect(inverse(0.25 as Unit)).toBe(0.75)
-    expect(inverse(0.5 as Unit)).toBe(0.5)
-    expect(inverse(1 as Unit)).toBe(0)
+    expect(inverse(0)).toBe(1)
+    expect(inverse(0.25)).toBe(0.75)
+    expect(inverse(0.5)).toBe(0.5)
+    expect(inverse(1)).toBe(0)
   })
 })
 
 describe('linear', () => {
   it('works as identity for Unit', () => {
-    expect(linear(0 as Unit)).toBe(0)
-    expect(linear(0.25 as Unit)).toBe(0.25)
-    expect(linear(0.5 as Unit)).toBe(0.5)
-    expect(linear(1 as Unit)).toBe(1)
+    expect(linear(0)).toBe(0)
+    expect(linear(0.25)).toBe(0.25)
+    expect(linear(0.5)).toBe(0.5)
+    expect(linear(1)).toBe(1)
   })
 })
 
 // describe('round', () => {
 //   it('rounds to nearest Unit boundary', () => {
-//     expect(round(-1 as Unit)).toBe(unitMin)
-//     expect(round(0 as Unit)).toBe(unitMin)
-//     expect(round(0.49 as Unit)).toBe(unitMin)
-//     expect(round(0.5 as Unit)).toBe(unitMax)
-//     expect(round(0.51 as Unit)).toBe(unitMax)
-//     expect(round(2 as Unit)).toBe(unitMax)
+//     expect(round(-1  )).toBe(unitMin)
+//     expect(round(0  )).toBe(unitMin)
+//     expect(round(0.49  )).toBe(unitMin)
+//     expect(round(0.5  )).toBe(unitMax)
+//     expect(round(0.51  )).toBe(unitMax)
+//     expect(round(2  )).toBe(unitMax)
 //   })
 // })

@@ -1,22 +1,21 @@
 import { Unit, isUnit } from '../lib/core'
-import { unitMin } from './core'
-import { unitMax } from './core'
+
 import { HALF_PI } from './constants'
 
 export const clip = (value: number): Unit => {
-  return Math.max(unitMin, Math.min(unitMax, value)) as Unit
+  return Math.max(0, Math.min(1, value))
 }
 
 export const degreesToUnit = (degrees: number): Unit => {
-  return wrapInclusive(degrees / 360)
+  return wrap(degrees / 360)
 }
 
 export const fraction = (value: number): Unit => {
-  return (unitMax / value) as Unit
+  return 1 / value
 }
 
 export const fractional = (value: number): Unit => {
-  return Math.abs(value % 1) as Unit
+  return Math.abs(value % 1)
 }
 
 export const mapRange = (
@@ -34,7 +33,7 @@ export const mapToUnit = (
   inMax: number,
   value: number
 ): Unit => {
-  return mapRange(inMin, inMax, unitMin, unitMax, value)
+  return mapRange(inMin, inMax, 0, 1, value)
 }
 
 export const radiansToUnit = (radians: number): Unit => {
@@ -48,13 +47,13 @@ export const toIndex = (length: number, unit: Unit): number => {
 export const wrap = (value: number): Unit => {
   if (isUnit(value)) return value
 
-  return (value < 0 ? unitMax - (-value % unitMax) : value % unitMax) as Unit
+  return value < 0 ? 1 - (-value % 1) : value % 1
 }
 
 export const wrapInclusive = (value: number): Unit => {
   if (isUnit(value)) return value
 
-  if (value % 1 === 0) return 1 as Unit
+  if (value % 1 === 0) return 1
 
-  return (value < 0 ? unitMax - (-value % unitMax) : value % unitMax) as Unit
+  return value < 0 ? 1 - (-value % 1) : value % 1
 }
