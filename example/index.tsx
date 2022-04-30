@@ -77,6 +77,15 @@ const App = () => {
       float PI = 3.1415926538;
       float HALF_PI = PI / 2.0;
 
+      // float cubicPulse (float c, float w, float x ) {
+      //    float x = fabs(x - c);
+      //     if( x>w ) {
+      //       return 0.0;
+      //     }
+      //     float x = x / w;
+      //     return 1.0 - x*x*(3.0-2.0*x);
+      // }
+
       float center (float x) {
         return abs(x * 2.0 - 1.0);
       }
@@ -140,17 +149,18 @@ const App = () => {
     let currentFrame = 0;
     const totalFrames = 10;
 
-    gl.frame(() => {
+    draw()
+    // gl.frame(() => {
       
-      // Update the frames of the video
-      draw({
+    //   // Update the frames of the video
+    //   draw({
       
-        uniforms: {
-          time: (currentFrame % totalFrames) / totalFrames
-        }
-      })
-      currentFrame++
-    })
+    //     uniforms: {
+    //       time: (currentFrame % totalFrames) / totalFrames
+    //     }
+    //   })
+    //   currentFrame++
+    // })
 
     // const stop = loop(() => {
       
