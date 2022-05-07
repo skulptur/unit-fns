@@ -32,7 +32,7 @@ export const mapToUnit = (
   inMax: number,
   value: number
 ): Unit => {
-  return mapRange(inMin, inMax, 0, 1, value)
+  return (value - inMin) / (inMax - inMin)
 }
 
 export const radiansToUnit = (radians: number): Unit => {

@@ -1,16 +1,7 @@
 import { Unit } from './core'
-import { radiansToUnit, wrapInclusive } from './number'
+import { wrapInclusive } from './number'
 import { unitMax } from './core'
 import { unitMin } from './core'
-
-// TODO: the reverse
-export const angle = (x: Unit, y: Unit): Unit => {
-  return radiansToUnit(Math.atan(y / x))
-}
-
-export const distance = (x: Unit, y: Unit): Unit => {
-  return Math.sqrt(x * x + y * y) / Math.SQRT2
-}
 
 export const maximum = Math.max as (x: Unit, y: Unit) => Unit
 
@@ -26,7 +17,9 @@ export const peak = (peak: Unit, unit: Unit): Unit => {
 
 // TODO: is this unit and should it be in this dir?
 export const radial = (x: number, y: number) => {
-  return 1 - distance(x * 2 - 1, y * 2 - 1)
+  const a = x * 2 - 1
+  const b = y * 2 - 1
+  return 1 - Math.hypot(a, b) / Math.SQRT2
 }
 
 export const repeat = (scale: Unit, t: Unit): Unit => {
