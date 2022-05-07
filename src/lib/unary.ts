@@ -39,11 +39,6 @@ export const sineInOut = (x: Unit): Unit => {
 }
 
 // --
-export const cosine = (x: Unit): Unit => {
-  return 1 - cos(x * HALF_PI)
-}
-
-// --
 export const quadraticIn = (x: Unit): Unit => {
   return x * x
 }
