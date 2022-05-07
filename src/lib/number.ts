@@ -1,5 +1,4 @@
 import { Unit, isUnit } from '../lib/core'
-
 import { HALF_PI } from './constants'
 
 export const clip = (value: number): Unit => {

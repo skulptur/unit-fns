@@ -3,6 +3,7 @@ import { radiansToUnit, wrapInclusive } from './number'
 import { unitMax } from './core'
 import { unitMin } from './core'
 
+// TODO: the reverse
 export const angle = (x: Unit, y: Unit): Unit => {
   return radiansToUnit(Math.atan(y / x))
 }
