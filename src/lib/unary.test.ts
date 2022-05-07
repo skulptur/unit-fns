@@ -25,7 +25,9 @@ import {
   circularIn,
   circularOut,
   circularInOut,
-  bounce,
+  bounceIn,
+  bounceOut,
+  bounceInOut,
 } from './unary'
 import { validateUnaryUnitFn } from './utils/testUtils'
 
@@ -57,6 +59,8 @@ describe('unary functions', () => {
     expect(validateUnaryUnitFn(circularIn)).toBe(true)
     expect(validateUnaryUnitFn(circularOut)).toBe(true)
     expect(validateUnaryUnitFn(circularInOut)).toBe(true)
-    expect(validateUnaryUnitFn(bounce)).toBe(true)
+    expect(validateUnaryUnitFn(bounceIn)).toBe(true)
+    expect(validateUnaryUnitFn(bounceOut)).toBe(true)
+    expect(validateUnaryUnitFn(bounceInOut)).toBe(true)
   })
 })
