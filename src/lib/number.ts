@@ -40,7 +40,7 @@ export const radiansToUnit = (radians: number): Unit => {
 }
 
 export const toIndex = (length: number, unit: Unit): number => {
-  return Math.floor(unit * (length - 1))
+  return Math.floor(unit * length)
 }
 
 export const wrap = (value: number): Unit => {
